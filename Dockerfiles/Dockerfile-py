@@ -1,0 +1,20 @@
+FROM continuumio/miniconda3:latest
+
+#conda install python==3.8.13
+
+LABEL name="rhslrhs"
+
+ENV TZ=Asia/Seoul
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV PATH /opt/conda/bin:$PATH
+
+## set env
+RUN conda update -n base -c defaults conda && \
+    conda install -y tensorflow && \
+#    conda install -y matplotlib && \
+    conda install -y numpy && \
+#    conda install -y PIL && \
+#    conda install -y time && \
+    echo "## conda install finish ~"
+
+CMD [ "/bin/bash" ]
