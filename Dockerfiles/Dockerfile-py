@@ -17,4 +17,6 @@ RUN conda update -n base -c defaults conda && \
 #    conda install -y time && \
     echo "## conda install finish ~"
 
+COPY src/ /var/singularity/src/
+
 CMD [ "/bin/bash" ]
