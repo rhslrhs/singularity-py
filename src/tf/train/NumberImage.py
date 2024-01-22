@@ -1,3 +1,4 @@
+import os
 from tensorflow.keras.datasets import mnist  # 라이브러리가 기본으로 제공하는 mnist 데이터셋
 from tensorflow.keras.utils import to_categorical  # one-hot encoding 을 위한 함수
 from tensorflow.keras.models import Sequential  # 레이어를 층층히 쌓아가는 연쇄 모델
@@ -49,4 +50,9 @@ loss, acc = model.evaluate(X_test, y_test)  # 학습 완료 후 검증
 print("손실률:", loss)  # 손실률: 0.08662549406290054
 print("정확도:", acc)  # 정확도: 0.9779999852180481
 
-model.save("num_model_2.keras")
+# model.save("num_model_2.keras")
+
+MODEL_DIR = "numImage"
+version = 1
+export_path = os.path.join(MODEL_DIR, str(version))
+model.save(export_path, save_format="tf")
