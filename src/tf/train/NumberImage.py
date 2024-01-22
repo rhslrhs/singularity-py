@@ -50,4 +50,3 @@ print("손실률:", loss)  # 손실률: 0.08662549406290054
 print("정확도:", acc)  # 정확도: 0.9779999852180481
 
 model.save("num_model_2.keras")
-docker run -rm py-runner:1 python /var/singularity/src/tf/train/NumberImage.py
